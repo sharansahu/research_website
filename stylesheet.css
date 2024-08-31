@@ -133,3 +133,33 @@ h2 {
 span.highlight {
   background-color: #ffffd0;
 }
+
+/* Header styling */
+header {
+  background-color: #f8f9fa; /* Light gray background similar to the image */
+  padding: 10px 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Navigation bar styling */
+.navbar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center the navigation links */
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333; /* Darker gray for text color */
+  font-weight: 500; /* Slightly bold */
+}
+
+.navbar a:hover {
+  color: #007bff; /* Blue color on hover */
+}
