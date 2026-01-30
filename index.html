@@ -138,6 +138,31 @@
                     <div style="display: flex; align-items: stretch; gap: 15px; margin-bottom: 20px;">
                       <!-- Image -->
                       <div style="flex: 1 1 auto;">
+                        <img src="images/classifier-guidance.png" alt="EVER Project"
+                          style="height: 100%; max-height: 124px; border-radius: 8px; object-fit: cover;">
+                      </div>
+                      <!-- Content -->
+                      <div style="flex: 1 1 auto;">
+                        <p>
+                          <strong>Provably Reliable Classifier Guidance through Cross-entropy Error Control</strong><br>
+                          <em>Sharan Sahu, Arisina Banerjee, Yuchen Wu</em><br>
+                          Classifier-guided diffusion augments the reverse-time score with a classifier gradient, but
+                          it’s unclear when standard classifier training actually yields good guidance. Under mild
+                          smoothness, we
+                          show that controlling per-step cross-entropy (conditional KL) also controls guidance-vector
+                          error:
+                          \( \mathrm{KL} \le \varepsilon^{2} \) implies guidance MSE \( \widetilde{O}(d\varepsilon) \).
+                          This gives a sampling-error bound and has a reverse log-Sobolev flavor. We also prove the
+                          smoothness condition is necessary via counterexamples where KL control fails to align
+                          guidance.<br>
+                          <a href="https://arxiv.org/abs/2601.21200">[ArXiv]</a><br>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; align-items: stretch; gap: 15px; margin-bottom: 20px;">
+                      <!-- Image -->
+                      <div style="flex: 1 1 auto;">
                         <img src="images/sgdm-inertia-window.png" alt="EVER Project"
                           style="height: 100%; max-height: 140px; border-radius: 8px; object-fit: cover;">
                       </div>
@@ -358,5 +383,12 @@
         </tr>
     </table>
   </body>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
 </html>
