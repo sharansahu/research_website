@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research — Sharan Sahu</title>
+    <meta name="author" content="Sharan Sahu">
+    <link rel="shortcut icon" href="images/personal_logo.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfa;
+            --bg-alt: #f7f5f2;
+            --text: #2d2a26;
+            --text-secondary: #5c5650;
+            --text-muted: #8a837a;
+            --accent: #b45309;
+            --accent-light: #d97706;
+            --border: #e8e4de;
+            --card-bg: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 252, 250, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0 24px;
+        }
+
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Page header */
+        .page-header {
+            padding: 100px 24px 56px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(2.4rem, 5vw, 3.2rem);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 600px;
+            line-height: 1.75;
+        }
+
+        /* Main content */
+        .research-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 64px 24px 100px;
+        }
+
+        /* Year group */
+        .year-group {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 0 40px;
+            margin-bottom: 56px;
+        }
+
+        .year-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .year-label {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--accent);
+            padding-top: 2px;
+            position: sticky;
+            top: 80px;
+            align-self: start;
+        }
+
+        .papers-list {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--border);
+        }
+
+        .paper-entry {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .paper-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a.paper-title:hover {
+            color: var(--accent);
+        }
+
+        .paper-authors {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Highlight own name */
+        .paper-authors .self {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .paper-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 2px;
+        }
+
+        .paper-venue {
+            font-size: 0.82rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .paper-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .paper-badge.spotlight {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .paper-badge.revision {
+            background: var(--bg-alt);
+            color: var(--text-muted);
+        }
+
+        .paper-links {
+            display: flex;
+            gap: 14px;
+            margin-top: 4px;
+        }
+
+        .paper-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.15s;
+        }
+
+        .paper-link:hover {
+            gap: 7px;
+        }
+
+        .paper-link svg {
+            width: 11px;
+            height: 11px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 0;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 700px) {
+            .year-group {
+                grid-template-columns: 1fr;
+                gap: 12px 0;
+            }
+
+            .year-label {
+                position: static;
+                font-size: 1.3rem;
+                padding-bottom: 4px;
+            }
+
+            .nav-links {
+                gap: 18px;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-header {
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .research-page {
+            animation: fadeUp 0.6s 0.1s ease both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">Sharan Sahu</a>
+            <ul class="nav-links">
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="index.html#talks">Talks</a></li>
+                <li><a href="index.html#misc">Misc</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Research</h1>
+        <p>Theory and methods in high-dimensional statistics, robust and stochastic optimization, reinforcement
+            learning, language and diffusion models, sampling, and differential privacy.</p>
+    </div>
+
+    <div class="research-page">
+
+        <!-- 2025 -->
+        <div class="year-group">
+            <div class="year-label">2026</div>
+            <div class="papers-list">
+
+                <div class="paper-entry">
+                    <a href="https://arxiv.org/abs/2601.21200" target="_blank" class="paper-title">
+                        Provably Reliable Classifier Guidance through Cross-entropy Error Control
+                    </a>
+                    <div class="paper-authors">
+                        <span class="self">Sharan Sahu</span>, Arisina Banerjee, and Yuchen Wu
+                    </div>
+                    <div class="paper-meta">
+                        <span class="paper-venue">arXiv preprint</span>
+                    </div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2601.21200" target="_blank" class="paper-link">
+                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="paper-entry">
+                    <a href="https://arxiv.org/abs/2601.12238" target="_blank" class="paper-title">
+                        On the Provable Suboptimality of Momentum SGD in Nonstationary Stochastic Optimization
+                    </a>
+                    <div class="paper-authors">
+                        <span class="self">Sharan Sahu</span>, Cameron J. Hogan, and Martin T. Wells
+                    </div>
+                    <div class="paper-meta">
+                        <span class="paper-venue">arXiv preprint</span>
+                    </div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2601.12238" target="_blank" class="paper-link">
+                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="year-group">
+            <div class="year-label">2025</div>
+            <div class="papers-list">
+
+                <div class="paper-entry">
+                    <a href="https://arxiv.org/abs/2509.19104" target="_blank" class="paper-title">
+                        Online Distributionally Robust LLM Alignment via Regression to Relative Reward
+                    </a>
+                    <div class="paper-authors">
+                        <span class="self">Sharan Sahu</span> and Martin T. Wells
+                    </div>
+                    <div class="paper-meta">
+                        <span class="paper-venue">arXiv preprint</span>
+                    </div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2509.19104" target="_blank" class="paper-link">
+                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="paper-entry">
+                    <a href="https://arxiv.org/abs/2504.09339" target="_blank" class="paper-title">
+                        Towards Optimal Differentially Private Regret Bounds in Linear Markov Decision Processes
+                    </a>
+                    <div class="paper-authors">
+                        <span class="self">Sharan Sahu</span>
+                    </div>
+                    <div class="paper-meta">
+                        <span class="paper-venue">arXiv preprint</span>
+                    </div>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2504.09339" target="_blank" class="paper-link">
+                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div><!-- /research-page -->
+
+    <footer>
+        <p>Template inspired by <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a></p>
+    </footer>
+
+    <script>
+        window.MathJax = { tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] }, svg: { fontCache: 'global' } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

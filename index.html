@@ -44,7 +44,6 @@
             font-size: 15px;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -93,7 +92,6 @@
             color: var(--accent);
         }
 
-        /* Hero Section */
         .hero {
             padding: 120px 24px 80px;
             max-width: 1000px;
@@ -182,7 +180,6 @@
             opacity: 0.3;
         }
 
-        /* Section Styling */
         section {
             padding: 80px 24px;
             max-width: 1000px;
@@ -190,14 +187,22 @@
         }
 
         .section-header {
-            margin-bottom: 48px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .section-header-left {
+            flex: 1;
         }
 
         .section-header h2 {
             font-family: 'Crimson Pro', Georgia, serif;
             font-size: 2rem;
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -212,106 +217,84 @@
 
         .section-header p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
-        /* Research Cards */
-        .research-grid {
+        .view-all-link {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+            flex-shrink: 0;
+            padding-top: 8px;
+        }
+
+        .view-all-link:hover {
+            gap: 8px;
+        }
+
+        /* Featured Research Cards */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .featured-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 24px 20px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 8px;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .research-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            transition: all 0.3s ease;
-        }
-
-        .research-card:hover {
+        .featured-card:hover {
+            border-color: var(--accent);
             box-shadow: var(--shadow-md);
             transform: translateY(-2px);
         }
 
-        .research-image {
-            background: linear-gradient(135deg, var(--bg-alt) 0%, #e8e4de 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            min-height: 220px;
-            padding: 16px;
+        .featured-card-year {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--accent);
         }
 
-        .research-image img {
-            max-width: 100%;
-            max-height: 188px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            transition: transform 0.4s ease;
-        }
-
-        .research-card:hover .research-image img {
-            transform: scale(1.05);
-        }
-
-        .research-content {
-            padding: 28px 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .research-content h3 {
+        .featured-card-title {
             font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.25rem;
+            font-size: 1.08rem;
             font-weight: 600;
             line-height: 1.4;
-            margin-bottom: 8px;
             color: var(--text);
         }
 
-        .research-authors {
-            font-size: 0.9rem;
-            color: var(--accent);
-            margin-bottom: 12px;
-            font-style: italic;
-        }
-
-        .research-abstract {
-            font-size: 0.9rem;
+        .featured-card-authors {
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 16px;
+            line-height: 1.55;
         }
 
-        .research-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-decoration: none;
-            transition: gap 0.2s;
+        .featured-card-venue {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--accent-light);
+            margin-top: auto;
+            padding-top: 4px;
         }
 
-        .research-link:hover {
-            gap: 10px;
-        }
-
-        .research-link svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        /* Talks Section */
+        /* Talks */
         .talks-list {
             display: flex;
             flex-direction: column;
@@ -355,7 +338,7 @@
             text-decoration: underline;
         }
 
-        /* Miscellanea / Videos */
+        /* Videos */
         .video-grid {
             display: flex;
             flex-direction: column;
@@ -435,7 +418,6 @@
             text-decoration: none;
         }
 
-        /* Footer */
         footer {
             padding: 40px 24px;
             text-align: center;
@@ -457,16 +439,6 @@
             color: var(--accent);
         }
 
-        /* MathJax styling */
-        mjx-container {
-            font-size: 1.05em !important;
-        }
-
-        mjx-container[jax="SVG"] {
-            direction: ltr;
-        }
-
-        /* Responsive */
         @media (max-width: 800px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -484,17 +456,8 @@
                 justify-content: center;
             }
 
-            .research-card {
+            .featured-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .research-image {
-                min-height: 180px;
-                padding: 16px;
-            }
-
-            .research-image img {
-                max-height: 140px;
             }
 
             .video-card {
@@ -508,9 +471,13 @@
             .nav-links {
                 gap: 20px;
             }
+
+            .section-header {
+                flex-direction: column;
+                gap: 4px;
+            }
         }
 
-        /* Animations */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -537,13 +504,12 @@
 
 <body>
 
-    <!-- Navigation -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Sharan
+            <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Sharan
                 Sahu</a>
             <ul class="nav-links">
-                <li><a href="#research">Research</a></li>
+                <li><a href="research.html">Research</a></li>
                 <li><a href="#talks">Talks</a></li>
                 <li><a href="#misc">Misc</a></li>
                 <li><a href="blog.html">Blog</a></li>
@@ -551,34 +517,25 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-grid">
             <div class="hero-content">
                 <h1>Sharan Sahu</h1>
-                <p>
-                    I am a second-year PhD student in <a href="https://stat.cornell.edu/academics/phd">Statistics and
+                <p>I am a second-year PhD student in <a href="https://stat.cornell.edu/academics/phd">Statistics and
                         Machine Learning</a> at <a href="https://www.cornell.edu">Cornell University</a>, advised by <a
                         href="https://stat.cornell.edu/people/martin-t-wells">Martin Wells</a> and <a
-                        href="https://wuyc0114.github.io">Yuchen Wu</a>.
-                </p>
-                <p>
-                    I am interested in statistical machine learning and establishing rigorous foundations for
-                    statistical and machine learning methods, while also developing new algorithms guided by theoretical
-                    insights. I am fortunate to have been supported by a <a
+                        href="https://wuyc0114.github.io">Yuchen Wu</a>.</p>
+                <p>I am interested in statistical machine learning and establishing rigorous foundations for statistical
+                    and machine learning methods, while also developing new algorithms guided by theoretical insights. I
+                    am fortunate to have been supported by a <a
                         href="https://gradschool.cornell.edu/financial-support/fellowships/new-student-fellowships">Cornell
-                        University Fellowship</a>.
-                </p>
-                <p>
-                    Before Cornell, I was an undergraduate at <a href="https://eecs.berkeley.edu">UC Berkeley</a>
+                        University Fellowship</a>.</p>
+                <p>Before Cornell, I was an undergraduate at <a href="https://eecs.berkeley.edu">UC Berkeley</a>
                     studying Computer Science, where I was advised by <a href="https://idc9.github.io">Iain
                         Carmichael</a> and <a href="https://www.stat.berkeley.edu/~ryantibs/index.html">Ryan
-                        Tibshirani</a>.
-                </p>
-                <p style="margin-top: 20px; font-style: italic; color: var(--text-muted);">
-                    If you're an undergrad or Master's student at Cornell and are interested in collaborating, please
-                    reach out!
-                </p>
+                        Tibshirani</a>.</p>
+                <p style="margin-top:20px;font-style:italic;color:var(--text-muted);">If you're an undergrad or Master's
+                    student at Cornell and are interested in collaborating, please reach out!</p>
                 <div class="hero-links">
                     <a href="mailto:ss4329@cornell.edu">Email</a>
                     <a href="https://scholar.google.com/citations?hl=en&user=Kb_r8eoAAAAJ">Google Scholar</a>
@@ -594,136 +551,75 @@
         </div>
     </header>
 
-    <!-- Research Section -->
+    <!-- Featured Research -->
     <section id="research">
         <div class="section-header">
-            <h2>Research</h2>
-            <p>Theory and methods in high-dimensional statistics, robust and stochastic optimization, reinforcement
-                learning, language and diffusion models, sampling, and differential privacy.</p>
+            <div class="section-header-left">
+                <h2>Featured Research</h2>
+                <p>Selected recent work across optimization, alignment, generative models, and differential privacy.</p>
+            </div>
+            <a href="research.html" class="view-all-link">All papers →</a>
         </div>
 
-        <div class="research-grid">
-            <!-- Paper 1 -->
-            <article class="research-card">
-                <div class="research-image">
-                    <img src="images/classifier-guidance.png" alt="Classifier Guidance"
-                        onerror="this.style.display='none'">
-                </div>
-                <div class="research-content">
-                    <h3>Provably Reliable Classifier Guidance through Cross-entropy Error Control</h3>
-                    <p class="research-authors">Sharan Sahu, Arisina Banerjee, and Yuchen Wu</p>
-                    <p class="research-abstract">
-                        Under mild smoothness, we show that controlling per-step cross-entropy (conditional KL) also
-                        controls guidance-vector error: \( \mathrm{KL} \le \varepsilon^{2} \) implies guidance MSE \(
-                        \widetilde{O}(d\varepsilon) \). This gives a sampling-error bound with a reverse log-Sobolev
-                        flavor.
-                    </p>
-                    <a href="https://arxiv.org/abs/2601.21200" class="research-link" target="_blank">
-                        ArXiv
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                    </a>
-                </div>
-            </article>
+        <div class="featured-grid">
+            <a href="https://arxiv.org/abs/2601.21200" target="_blank" class="featured-card">
+                <span class="featured-card-year">2026</span>
+                <div class="featured-card-title">Provably Reliable Classifier Guidance through Cross-entropy Error
+                    Control</div>
+                <div class="featured-card-authors">Sharan Sahu, Arisina Banerjee, Yuchen Wu</div>
+                <div class="featured-card-venue">arXiv preprint</div>
+            </a>
 
-            <!-- Paper 2 -->
-            <article class="research-card">
-                <div class="research-image">
-                    <img src="images/sgdm-inertia-window.png" alt="SGD Momentum" onerror="this.style.display='none'">
-                </div>
-                <div class="research-content">
-                    <h3>On the Provable Suboptimality of Momentum SGD in Nonstationary Stochastic Optimization</h3>
-                    <p class="research-authors">Sharan Sahu, Cameron J. Hogan, and Martin T. Wells</p>
-                    <p class="research-abstract">
-                        A sharp finite-time theory showing when and why momentum fails: we decompose tracking error into
-                        initialization + noise + drift, proving momentum suppresses noise but amplifies drift with
-                        minimax dynamic-regret lower bounds.
-                    </p>
-                    <a href="https://arxiv.org/abs/2601.12238" class="research-link" target="_blank">
-                        ArXiv
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                    </a>
-                </div>
-            </article>
+            <a href="https://arxiv.org/abs/2601.12238" target="_blank" class="featured-card">
+                <span class="featured-card-year">2026</span>
+                <div class="featured-card-title">On the Provable Suboptimality of Momentum SGD in Nonstationary
+                    Stochastic Optimization</div>
+                <div class="featured-card-authors">Sharan Sahu, Cameron J. Hogan, Martin T. Wells</div>
+                <div class="featured-card-venue">arXiv preprint</div>
+            </a>
 
-            <!-- Paper 3 -->
-            <article class="research-card">
-                <div class="research-image">
-                    <img src="images/dro.png" alt="DRO LLM Alignment" onerror="this.style.display='none'">
-                </div>
-                <div class="research-content">
-                    <h3>Online Distributionally Robust LLM Alignment via Regression to Relative Reward RL</h3>
-                    <p class="research-authors">Sharan Sahu and Martin T. Wells</p>
-                    <p class="research-abstract">
-                        A family of distributionally robust policy optimization algorithms for LLM alignment that reduce
-                        to simple relative-reward regressions, achieving minimax-optimal rates and significantly tighter
-                        constants than prior DRO-DPO methods.
-                    </p>
-                    <a href="https://arxiv.org/abs/2509.19104" class="research-link" target="_blank">
-                        ArXiv
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                    </a>
-                </div>
-            </article>
+            <a href="https://arxiv.org/abs/2509.19104" target="_blank" class="featured-card">
+                <span class="featured-card-year">2025</span>
+                <div class="featured-card-title">Online Distributionally Robust LLM Alignment via Regression to Relative
+                    Reward</div>
+                <div class="featured-card-authors">Sharan Sahu, Martin T. Wells</div>
+                <div class="featured-card-venue">arXiv preprint</div>
+            </a>
 
-            <!-- Paper 4 -->
-            <article class="research-card">
-                <div class="research-image">
-                    <img src="images/dp-intro.png" alt="Differential Privacy" onerror="this.style.display='none'">
-                </div>
-                <div class="research-content">
-                    <h3>Towards Optimal Differentially Private Regret Bounds in Linear Markov Decision Processes</h3>
-                    <p class="research-authors">Sharan Sahu</p>
-                    <p class="research-abstract">
-                        Privatizing LSVI-UCB++ with Bernstein bonus achieves state-of-the-art regret in linear MDPs
-                        under joint differential privacy with minimal utility loss.
-                    </p>
-                    <a href="https://arxiv.org/abs/2504.09339" class="research-link" target="_blank">
-                        ArXiv
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                    </a>
-                </div>
-            </article>
+            <a href="https://arxiv.org/abs/2504.09339" target="_blank" class="featured-card">
+                <span class="featured-card-year">2025</span>
+                <div class="featured-card-title">Towards Optimal Differentially Private Regret Bounds in Linear Markov
+                    Decision Processes</div>
+                <div class="featured-card-authors">Sharan Sahu</div>
+                <div class="featured-card-venue">arXiv preprint</div>
+            </a>
         </div>
     </section>
 
-    <!-- Talks Section -->
+    <!-- Talks -->
     <section id="talks">
         <div class="section-header">
-            <h2>Presentations & Talks</h2>
+            <div class="section-header-left">
+                <h2>Presentations &amp; Talks</h2>
+            </div>
         </div>
-
         <div class="talks-list">
             <div class="talk-item">
                 <h4>Towards Optimal Differentially Private Regret Bounds in Linear MDPs</h4>
                 <p class="talk-meta">Cornell University, 2025</p>
                 <a href="data/Towards_Opt_Diff_Private_MDP.pdf">View Slides →</a>
             </div>
-
             <div class="talk-item">
                 <h4>The Machine Learning Problems Behind Large Language Models: Self-Supervision, Fine-Tuning, and
                     Reinforcement Learning</h4>
                 <p class="talk-meta">University of North Carolina, Chapel Hill, 2025</p>
                 <a href="data/LLM_ML_Prob_Slides.pdf">View Slides →</a>
             </div>
-
             <div class="talk-item">
                 <h4>Beyond RNNs: An Introduction to Transformers and LLMs</h4>
                 <p class="talk-meta">Cornell Tech (Break Through Tech), 2025</p>
                 <a href="data/Intro_LLMs_Transformers.pdf">View Slides →</a>
             </div>
-
             <div class="talk-item">
                 <h4>Unlocking the Power of Databases: The Crucial Role of Theory and Indices in Scalable Vector
                     Databases for Machine Learning</h4>
@@ -733,14 +629,14 @@
         </div>
     </section>
 
-    <!-- Miscellanea Section -->
+    <!-- Misc -->
     <section id="misc">
         <div class="section-header">
-            <h2>Miscellanea</h2>
+            <div class="section-header-left">
+                <h2>Miscellanea</h2>
+            </div>
         </div>
-
         <div class="video-grid">
-            <!-- Video 1 -->
             <div class="video-card">
                 <a href="https://youtu.be/ScoOQx9XCCg" target="_blank" class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/ScoOQx9XCCg/hqdefault.jpg" alt="SOP Video">
@@ -748,16 +644,12 @@
                 <div class="video-content">
                     <h4><a href="https://youtu.be/ScoOQx9XCCg" target="_blank">Writing a Technical SOP for PhD /
                             Research Master's Applications</a></h4>
-                    <p>
-                        A video with <a href="https://stat.cornell.edu/people/phds/sithija-manage">Sithija Manage</a>
+                    <p>A video with <a href="https://stat.cornell.edu/people/phds/sithija-manage">Sithija Manage</a>
                         breaking down how I approached graduate school applications and wrote my Statement of Purpose.
                         We discuss what to include, how to describe research experiences with technical detail, and how
-                        to tailor your SOP for committee-driven vs PI-driven admissions.
-                    </p>
+                        to tailor your SOP for committee-driven vs PI-driven admissions.</p>
                 </div>
             </div>
-
-            <!-- Video 2 -->
             <div class="video-card">
                 <a href="https://youtu.be/wkRhrF1T7qQ" target="_blank" class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/wkRhrF1T7qQ/hqdefault.jpg" alt="PhD Journey Interview">
@@ -765,15 +657,11 @@
                 <div class="video-content">
                     <h4><a href="https://youtu.be/wkRhrF1T7qQ" target="_blank">Interview with Sithija Manage: My PhD
                             Application Journey</a></h4>
-                    <p>
-                        An interview about my journey through graduate school applications. We discuss my undergraduate
+                    <p>An interview about my journey through graduate school applications. We discuss my undergraduate
                         research at Berkeley, Stanford, and USC, the admissions process, writing statements of purpose,
-                        building mentorships, and evaluating program fit.
-                    </p>
+                        building mentorships, and evaluating program fit.</p>
                 </div>
             </div>
-
-            <!-- Video 3 -->
             <div class="video-card">
                 <a href="https://youtu.be/WdbdsMnriwE" target="_blank" class="video-thumbnail">
                     <img src="https://img.youtube.com/vi/WdbdsMnriwE/hqdefault.jpg" alt="Liftoff Podcast">
@@ -781,31 +669,23 @@
                 <div class="video-content">
                     <h4><a href="https://youtu.be/WdbdsMnriwE" target="_blank">Interview with Aman Manazir: From USAMO
                             Math to Quant Trading, ML PhD, and AI Startups</a></h4>
-                    <p>
-                        A podcast episode on the Liftoff Podcast with <a href="https://www.amanmanazir.com/">Aman
+                    <p>A podcast episode on the Liftoff Podcast with <a href="https://www.amanmanazir.com/">Aman
                             Manazir</a>. I share how I got interested in competitive math, balanced internships and
                         research at Berkeley, Stanford, and USC, and the decision between quant research and a PhD at
-                        Cornell.
-                    </p>
+                        Cornell.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>Template inspired by <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a></p>
     </footer>
 
-    <!-- MathJax -->
     <script>
-        window.MathJax = {
-            tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
-            svg: { fontCache: 'global' }
-        };
+        window.MathJax = { tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] }, svg: { fontCache: 'global' } };
     </script>
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
 </body>
 
 </html>
