@@ -499,6 +499,72 @@
             animation-delay: 0.15s;
             opacity: 0;
         }
+
+        /* News section */
+        .news-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px 72px;
+        }
+
+        .news-section h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .news-section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--border);
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .news-item.old {
+            opacity: 0.38;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+            white-space: nowrap;
+            min-width: 72px;
+            padding-top: 1px;
+        }
+
+        .news-text {
+            flex: 1;
+        }
+
+        .news-text a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .news-text a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -551,6 +617,58 @@
         </div>
     </header>
 
+    <!-- News -->
+    <div class="news-section">
+        <h2>News</h2>
+        <div class="news-list">
+            <div class="news-item">
+                <span class="news-date">[05/2026]</span>
+                <span class="news-text">Our paper <a href="https://arxiv.org/abs/2601.12238" target="_blank">On the
+                        Provable Suboptimality of Momentum SGD in Nonstationary Stochastic Optimization</a> was accepted
+                    to <a href="https://icml.cc/Conferences/2026" target="_blank">ICML
+                        2026</a>.</span>
+            </div>
+            <div class="news-item">
+                <span class="news-date">[01/2026]</span>
+                <span class="news-text">New preprint online: We establish provable reliability guarantees for
+                    classifier-guided diffusion models via cross-entropy error control. <a
+                        href="https://arxiv.org/abs/2601.21200" target="_blank">Provably Reliable Classifier Guidance
+                        through Cross-entropy Error Control</a>.</span>
+            </div>
+            <div class="news-item">
+                <span class="news-date">[01/2026]</span>
+                <span class="news-text">New preprint online: We prove fundamental lower bounds showing momentum SGD is
+                    provably suboptimal for tracking nonstationary stochastic objectives. <a
+                        href="https://arxiv.org/abs/2601.12238" target="_blank">On the Provable Suboptimality of
+                        Momentum SGD in Nonstationary Stochastic Optimization</a>.</span>
+            </div>
+            <div class="news-item">
+                <span class="news-date">[09/2025]</span>
+                <span class="news-text">New preprint online: We develop an online distributionally robust framework for
+                    LLM alignment that is robust to shifts in human preference distributions. <a
+                        href="https://arxiv.org/abs/2509.19104" target="_blank">Online Distributionally Robust LLM
+                        Alignment via Regression to Relative Reward</a>.</span>
+            </div>
+            <div class="news-item old">
+                <span class="news-date">[04/2025]</span>
+                <span class="news-text">New <a href="blog.html">blog post</a> up: <a href="blog.html">High-Dimensional
+                        Statistics: Concentration Inequalities</a> — exploring Hoeffding's, Bernstein's, and related
+                    bounds.</span>
+            </div>
+            <div class="news-item old">
+                <span class="news-date">[04/2025]</span>
+                <span class="news-text">New preprint online: We derive near-optimal differentially private regret bounds
+                    for reinforcement learning in linear Markov decision processes. <a
+                        href="https://arxiv.org/abs/2504.09339" target="_blank">Towards Optimal Differentially Private
+                        Regret Bounds in Linear Markov Decision Processes</a>.</span>
+            </div>
+            <div class="news-item old">
+                <span class="news-date">[08/2024]</span>
+                <span class="news-text">Started my PhD in Statistics and Machine Learning at Cornell University.</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Featured Research -->
     <section id="research">
         <div class="section-header">
@@ -575,7 +693,7 @@
                 <div class="featured-card-title">On the Provable Suboptimality of Momentum SGD in Nonstationary
                     Stochastic Optimization</div>
                 <div class="featured-card-authors">Sharan Sahu, Cameron J. Hogan, Martin T. Wells</div>
-                <div class="featured-card-venue">arXiv preprint</div>
+                <div class="featured-card-venue">ICML 2026</div>
             </a>
 
             <a href="https://arxiv.org/abs/2509.19104" target="_blank" class="featured-card">
