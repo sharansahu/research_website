@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://sharansahu.com/</loc>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-uc-berkeley-commencement.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sharansahu.com/research.html</loc>
+  </url>
+
+  <url>
+    <loc>https://sharansahu.com/personal.html</loc>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-cornell-statistics-cohort.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-g-research-nice-france.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-icml-2026-seoul.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-icml-2026-poster.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-icml-2026-poster-discussion.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-ithaca-night-out.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-ithaca-commons-winter.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-austin-texas-fall-break.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-carrom-night.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-food-festival.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-syracuse-lemonade.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-osaka-castle-japan.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-gangnam-seoul.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-uc-berkeley-commencement.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/images/sharan-sahu-uc-berkeley-commencement-friends.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://sharansahu.com/blog.html</loc>
+  </url>
+
+  <url>
+    <loc>https://sharansahu.com/posts/post1/concentration-inequalities.html</loc>
+  </url>
+
+</urlset>
