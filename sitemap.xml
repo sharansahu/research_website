@@ -68,6 +68,15 @@
 
   <url>
     <loc>https://sharansahu.com/posts/post1/concentration-inequalities.html</loc>
+    <image:image>
+      <image:loc>https://sharansahu.com/posts/post1/images/tail_bound_illustration.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/posts/post1/images/lasso-reg-path.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://sharansahu.com/posts/post1/images/lasso-vs-ridge.jpg</image:loc>
+    </image:image>
   </url>
 
 </urlset>

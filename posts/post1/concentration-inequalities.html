@@ -6,7 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High-Dimensional Statistics: Concentration Inequalities | Sharan Sahu</title>
     <meta name="author" content="Sharan Sahu">
+    <meta name="description"
+        content="Sharan Sahu on concentration inequalities — Hoeffding's and Bernstein's bounds and how they enable performance guarantees in high-dimensional statistics.">
+    <link rel="canonical" href="https://sharansahu.com/posts/post1/concentration-inequalities.html">
     <link rel="shortcut icon" href="../../images/personal_logo.png" type="image/png">
+
+    <!-- Social / entity metadata -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="High-Dimensional Statistics: Concentration Inequalities">
+    <meta property="og:description"
+        content="Hoeffding's and Bernstein's bounds and how they enable performance guarantees in high-dimensional statistics.">
+    <meta property="og:url" content="https://sharansahu.com/posts/post1/concentration-inequalities.html">
+    <meta property="og:image"
+        content="https://sharansahu.com/posts/post1/images/tail_bound_illustration.png">
+    <meta property="article:published_time" content="2025-04-13">
+    <meta property="article:author" content="Sharan Sahu">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="High-Dimensional Statistics: Concentration Inequalities">
+    <meta name="twitter:image"
+        content="https://sharansahu.com/posts/post1/images/tail_bound_illustration.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://sharansahu.com/posts/post1/concentration-inequalities.html#post",
+      "mainEntityOfPage": "https://sharansahu.com/posts/post1/concentration-inequalities.html",
+      "headline": "High-Dimensional Statistics: Concentration Inequalities",
+      "description": "Concentration inequalities — Hoeffding's and Bernstein's bounds — and how they enable performance guarantees in high-dimensional statistics.",
+      "datePublished": "2025-04-13",
+      "dateModified": "2025-04-13",
+      "author": { "@id": "https://sharansahu.com/#person" },
+      "publisher": { "@id": "https://sharansahu.com/#person" },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://sharansahu.com/posts/post1/images/tail_bound_illustration.png",
+          "width": 1979,
+          "height": 1180,
+          "caption": "Gap between exact binomial tail probabilities and the Markov, Chebyshev, and Chernoff bounds."
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://sharansahu.com/posts/post1/images/lasso-reg-path.png",
+          "width": 1000,
+          "height": 600,
+          "caption": "Lasso solution path as the regularization parameter varies."
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://sharansahu.com/posts/post1/images/lasso-vs-ridge.jpg",
+          "width": 769,
+          "height": 396,
+          "caption": "Classic illustration comparing the lasso and ridge constraint regions."
+        }
+      ]
+    }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
@@ -570,7 +626,7 @@
                 to Chebyshev.</p>
 
             <figure>
-                <img src="images/tail_bound_illustration.png" alt="Tail bound illustration">
+                <img src="images/tail_bound_illustration.png" alt="Plot comparing exact binomial tail probabilities with the Markov, Chebyshev, and Chernoff bounds as the threshold varies" width="1979" height="1180" loading="lazy" decoding="async">
                 <figcaption>Fig. 1. Gap between exact tail probabilities and Markov, Chebyshev, and Chernoff bounds for
                     varying thresholds using a Binomial Distribution.</figcaption>
             </figure>
@@ -925,13 +981,13 @@
             </p>
 
             <figure>
-                <img src="images/lasso-reg-path.png" alt="Lasso solution path">
+                <img src="images/lasso-reg-path.png" alt="Lasso solution path showing coefficient estimates shrinking toward zero as the regularization parameter increases" width="1000" height="600" loading="lazy" decoding="async">
                 <figcaption>Fig. 2. Lasso solution path as the hyperparameter varies. We see that as the hyperparameter
                     increases, there is a tendency for the weights to go closer to 0.</figcaption>
             </figure>
 
             <figure>
-                <img src="images/lasso-vs-ridge.jpg" alt="Lasso vs Ridge comparison">
+                <img src="images/lasso-vs-ridge.jpg" alt="Classic geometric illustration comparing the lasso and ridge regression constraint regions" width="769" height="396" loading="lazy" decoding="async">
                 <figcaption>Fig. 3. The "classic" illustration comparing lasso and ridge constraints. Credit: Chapter
                     3.4 of Hastie et al. (2009) [3]</figcaption>
             </figure>
