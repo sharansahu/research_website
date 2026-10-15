@@ -234,403 +234,191 @@
       ]
     }
     </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --bg: #fdfcfa;
-            --bg-alt: #f7f5f2;
-            --text: #2d2a26;
-            --text-secondary: #5c5650;
-            --text-muted: #8a837a;
-            --accent: #b45309;
-            --accent-light: #d97706;
-            --border: #e8e4de;
-            --card-bg: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 15px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(253, 252, 250, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-            padding: 0 24px;
-        }
-
-        .nav-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .nav-logo {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        /* Page header */
-        .page-header {
-            padding: 100px 24px 56px;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .page-header h1 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: clamp(2.4rem, 5vw, 3.2rem);
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        .page-header p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 640px;
-            line-height: 1.75;
-        }
-
-        /* Main content */
-        .personal-page {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 64px 24px 100px;
-        }
-
-        .personal-section {
-            margin-bottom: 64px;
-        }
-
-        .personal-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .personal-section h2 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.6rem;
-            font-weight: 500;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            color: var(--accent);
-        }
-
-        .personal-section h2::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 24px;
-        }
-
-        .photo-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .photo-card figure {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            background: var(--bg-alt);
-            aspect-ratio: 4 / 3;
-            transition: box-shadow 0.25s ease, transform 0.25s ease;
-        }
-
-        .photo-card:hover figure {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
-        }
-
-        .photo-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .photo-caption {
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.55;
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            margin-top: 40px;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .personal-page {
-                padding: 48px 16px 80px;
-            }
-
-            .page-header {
-                padding: 90px 16px 40px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .photo-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 16px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .page-header {
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .personal-section {
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .personal-section:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .personal-section:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .personal-section:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .personal-section:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .personal-section:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-    </style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"
+        integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/site.js"></script>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">Sharan Sahu</a>
-            <ul class="nav-links">
-                <li><a href="index.html#research">Research</a></li>
-                <li><a href="index.html#talks">Talks</a></li>
-                <li><a href="personal.html" class="active">Personal</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav id="navbar" class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><span class="first-name">Sharan</span> Sahu</a>
+                <button class="navbar-toggler collapsed" type="button" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+                <div class="navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="talks.html">Talks</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="personal.html" aria-current="page">Personal</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="data/Sharan_PhD_CV.pdf">CV</a></li>
+                        <li class="toggle-container">
+                            <button id="light-toggle" type="button" title="Change theme" aria-label="Change theme">
+                                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Page header -->
-    <div class="page-header">
-        <h1>Personal</h1>
-        <p>A few snapshots from outside of research — grad school, friends, food, and travel.</p>
+    <div class="container post">
+        <header class="post-header">
+            <h1 class="post-title">Personal</h1>
+            <p class="post-description">A few snapshots from outside of research — grad school, friends, food, and
+                travel.</p>
+        </header>
+
+        <article>
+            <!-- Grad School -->
+            <section class="gallery-section">
+                <h2>Grad School</h2>
+                <hr>
+                <div class="gallery">
+                    <a href="images/sharan-sahu-cornell-statistics-cohort.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-cornell-statistics-cohort.jpg" alt="Sharan Sahu with his Cornell statistics cohort and Professor Jim Booth after their linear models class" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">Last class of linear models my first semester of grad school with my cohort and Professor Jim Booth.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-g-research-nice-france.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-g-research-nice-france.jpg" alt="Sharan Sahu with colleagues at a G-Research event in Nice, France" width="1512" height="2016" loading="lazy" decoding="async">
+                            <figcaption class="caption">With colleagues at a G-Research event in Nice, France.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-icml-2026-seoul.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-icml-2026-seoul.jpg" alt="Sharan Sahu at ICML 2026 in Seoul" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">My first machine learning conference at ICML 2026.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-icml-2026-poster.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-icml-2026-poster.jpg" alt="Sharan Sahu presenting his research poster at ICML 2026 in Seoul" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">Presenting our poster at ICML 2026.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-icml-2026-poster-discussion.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-icml-2026-poster-discussion.jpg" alt="Sharan Sahu talking through his poster with attendees at ICML 2026" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">Talking through the poster with fellow attendees at ICML 2026.</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Friends & Cornell Life -->
+            <section class="gallery-section">
+                <h2>Friends &amp; Cornell Life</h2>
+                <hr>
+                <div class="gallery">
+                    <a href="images/sharan-sahu-ithaca-night-out.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-ithaca-night-out.jpg" alt="Sharan Sahu on a night out with friends in Ithaca" width="1600" height="1060" loading="lazy" decoding="async">
+                            <figcaption class="caption">A night out with friends in Ithaca.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-ithaca-commons-winter.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-ithaca-commons-winter.jpg" alt="Winter evening on the Ithaca Commons" width="2048" height="1536" loading="lazy" decoding="async">
+                            <figcaption class="caption">Winter evening on the Ithaca Commons.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-austin-texas-fall-break.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-austin-texas-fall-break.jpg" alt="Sharan Sahu shooting pool during fall break in Austin, Texas" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">Shooting pool during Fall break in Austin, Texas.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-carrom-night.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-carrom-night.jpg" alt="Sharan Sahu playing carrom with friends" width="1536" height="2048" loading="lazy" decoding="async">
+                            <figcaption class="caption">Carrom night with friends.</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Food Festivals -->
+            <section class="gallery-section">
+                <h2>Food Festivals</h2>
+                <hr>
+                <div class="gallery">
+                    <a href="images/sharan-sahu-food-festival.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-food-festival.jpg" alt="Sharan Sahu getting food at a local food festival" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">Enjoying some food at a local food festival.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-syracuse-lemonade.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-syracuse-lemonade.jpg" alt="Sharan Sahu getting lemonade at a festival in Syracuse" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">Enjoying some lemonade in Syracuse.</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Travel -->
+            <section class="gallery-section">
+                <h2>Travel</h2>
+                <hr>
+                <div class="gallery">
+                    <a href="images/sharan-sahu-osaka-castle-japan.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-osaka-castle-japan.jpg" alt="Sharan Sahu by the moat at Osaka Castle, Japan" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">By the moat at Osaka Castle, Japan enjoying a famous 10-yen coin cheese bread.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-gangnam-seoul.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-gangnam-seoul.jpg" alt="Sharan Sahu by the giant sculpture in Gangnam, Seoul" width="1600" height="1200" loading="lazy" decoding="async">
+                            <figcaption class="caption">Near the giant sculpture in Gangnam, Seoul.</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Graduation -->
+            <section class="gallery-section">
+                <h2>Graduation</h2>
+                <hr>
+                <div class="gallery">
+                    <a href="images/sharan-sahu-uc-berkeley-commencement.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-uc-berkeley-commencement.jpg" alt="Sharan Sahu at his undergraduate commencement at UC Berkeley" width="800" height="800" loading="lazy" decoding="async">
+                            <figcaption class="caption">Undergraduate Commencement at UC Berkeley.</figcaption>
+                        </figure>
+                    </a>
+                    <a href="images/sharan-sahu-uc-berkeley-commencement-friends.jpg" target="_blank" rel="noopener">
+                        <figure>
+                            <img src="images/sharan-sahu-uc-berkeley-commencement-friends.jpg" alt="Sharan Sahu with friends at UC Berkeley commencement" width="2304" height="1536" loading="lazy" decoding="async">
+                            <figcaption class="caption">With friends at UC Berkeley Commencement.</figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </section>
+        </article>
     </div>
 
-    <!-- Main content -->
-    <main class="personal-page">
-
-        <!-- Grad School -->
-        <section class="personal-section">
-            <h2>Grad School</h2>
-            <div class="photo-grid">
-                <a class="photo-card" href="images/sharan-sahu-cornell-statistics-cohort.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-cornell-statistics-cohort.jpg" alt="Sharan Sahu with his Cornell statistics cohort and Professor Jim Booth after their linear models class" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Last class of linear models my first semester of grad school with my cohort and Professor Jim Booth.
-                        </p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-g-research-nice-france.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-g-research-nice-france.jpg" alt="Sharan Sahu with colleagues at a G-Research event in Nice, France" width="1512" height="2016" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">With colleagues at a G-Research event in Nice, France.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-icml-2026-seoul.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-icml-2026-seoul.jpg" alt="Sharan Sahu at ICML 2026 in Seoul" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">My first machine learning conference at ICML 2026.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-icml-2026-poster.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-icml-2026-poster.jpg" alt="Sharan Sahu presenting his research poster at ICML 2026 in Seoul" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Presenting our poster at ICML 2026.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-icml-2026-poster-discussion.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-icml-2026-poster-discussion.jpg" alt="Sharan Sahu talking through his poster with attendees at ICML 2026" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Talking through the poster with fellow attendees at ICML 2026.</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Friends & Cornell Life -->
-        <section class="personal-section">
-            <h2>Friends &amp; Cornell Life</h2>
-            <div class="photo-grid">
-                <a class="photo-card" href="images/sharan-sahu-ithaca-night-out.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-ithaca-night-out.jpg" alt="Sharan Sahu on a night out with friends in Ithaca" width="1600" height="1060" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">A night out with friends in Ithaca.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-ithaca-commons-winter.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-ithaca-commons-winter.jpg" alt="Winter evening on the Ithaca Commons" width="2048" height="1536" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Winter evening on the Ithaca Commons.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-austin-texas-fall-break.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-austin-texas-fall-break.jpg" alt="Sharan Sahu shooting pool during fall break in Austin, Texas" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Shooting pool during Fall break in Austin, Texas.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-carrom-night.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-carrom-night.jpg" alt="Sharan Sahu playing carrom with friends" width="1536" height="2048" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Carrom night with friends.</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Food Festivals -->
-        <section class="personal-section">
-            <h2>Food Festivals</h2>
-            <div class="photo-grid">
-                <a class="photo-card" href="images/sharan-sahu-food-festival.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-food-festival.jpg" alt="Sharan Sahu getting food at a local food festival" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Enjoying some food at a local food festival.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-syracuse-lemonade.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-syracuse-lemonade.jpg" alt="Sharan Sahu getting lemonade at a festival in Syracuse" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Enjoying some lemonade in Syracuse.</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Travel -->
-        <section class="personal-section">
-            <h2>Travel</h2>
-            <div class="photo-grid">
-                <a class="photo-card" href="images/sharan-sahu-osaka-castle-japan.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-osaka-castle-japan.jpg" alt="Sharan Sahu by the moat at Osaka Castle, Japan" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">By the moat at Osaka Castle, Japan enjoying a famous 10-yen coin cheese bread.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-gangnam-seoul.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-gangnam-seoul.jpg" alt="Sharan Sahu by the giant sculpture in Gangnam, Seoul" width="1600" height="1200" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Near the giant sculpture in Gangnam, Seoul.</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Graduation -->
-        <section class="personal-section">
-            <h2>Graduation</h2>
-            <div class="photo-grid">
-                <a class="photo-card" href="images/sharan-sahu-uc-berkeley-commencement.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-uc-berkeley-commencement.jpg" alt="Sharan Sahu at his undergraduate commencement at UC Berkeley" width="800" height="800" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">Undergraduate Commencement at UC Berkeley.</p>
-                </a>
-                <a class="photo-card" href="images/sharan-sahu-uc-berkeley-commencement-friends.jpg" target="_blank" rel="noopener">
-                    <figure><img src="images/sharan-sahu-uc-berkeley-commencement-friends.jpg" alt="Sharan Sahu with friends at UC Berkeley commencement" width="2304" height="1536" loading="lazy" decoding="async"></figure>
-                    <p class="photo-caption">With friends at UC Berkeley Commencement.</p>
-                </a>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>Template inspired by <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a></p>
+    <footer class="fixed-bottom">
+        <div class="container">© Copyright 2026 Sharan Sahu. Design based on the <a
+                href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a>
+            theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub
+                Pages</a>.</div>
     </footer>
-
 </body>
 
 </html>

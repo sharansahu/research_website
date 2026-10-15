@@ -63,461 +63,60 @@
       ]
     }
     </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --bg: #fdfcfa;
-            --bg-alt: #f7f5f2;
-            --text: #2d2a26;
-            --text-secondary: #5c5650;
-            --text-muted: #8a837a;
-            --accent: #b45309;
-            --accent-light: #d97706;
-            --border: #e8e4de;
-            --card-bg: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
-            --code-bg: #f8f6f3;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(253, 252, 250, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-            padding: 0 24px;
-        }
-
-        .nav-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .nav-logo {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        /* Article Container */
-        article {
-            padding: 120px 24px 80px;
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        /* Article Header */
-        .article-header {
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .article-header h1 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .article-meta {
-            color: var(--accent);
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: var(--bg-alt);
-            color: var(--text-secondary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .tag:hover {
-            background: var(--accent);
-            color: white;
-        }
-
-        /* Content Styling */
-        .content h2 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-top: 48px;
-            margin-bottom: 20px;
-            color: var(--text);
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .content h3 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-top: 36px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .content h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 28px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .content p {
-            margin-bottom: 20px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .content a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-
-        .content a:hover {
-            border-bottom-color: var(--accent);
-        }
-
-        .content strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        /* Math Blocks */
-        .math {
-            overflow-x: auto;
-            margin: 24px 0;
-            padding: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        /* Proof Blocks */
-        .proof {
-            margin: 24px 0;
-            padding: 20px 24px;
-            background: var(--bg-alt);
-            border-left: 3px solid var(--accent);
-            border-radius: 0 8px 8px 0;
-        }
-
-        .proof::before {
-            content: "Proof.";
-            font-weight: 600;
-            font-style: italic;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .proof::after {
-            content: "□";
-            display: block;
-            text-align: right;
-            font-weight: bold;
-            color: var(--accent);
-            margin-top: 12px;
-        }
-
-        /* Figures */
-        figure {
-            margin: 32px 0;
-            text-align: center;
-        }
-
-        figure img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: var(--shadow-md);
-        }
-
-        figcaption {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 12px;
-            font-style: italic;
-        }
-
-        /* Code */
-        code {
-            font-family: 'JetBrains Mono', monospace;
-            background: var(--code-bg);
-            border-radius: 4px;
-            padding: 0.2em 0.4em;
-            font-size: 0.85em;
-            color: var(--accent);
-        }
-
-        pre {
-            background: var(--code-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-            overflow-x: auto;
-            margin: 24px 0;
-        }
-
-        pre code {
-            background: transparent;
-            padding: 0;
-            color: var(--text);
-        }
-
-        /* Blockquote */
-        blockquote {
-            border-left: 3px solid var(--accent);
-            padding: 12px 20px;
-            margin: 24px 0;
-            background: var(--bg-alt);
-            border-radius: 0 8px 8px 0;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        /* Citation Section */
-        .citation {
-            margin-top: 64px;
-            padding-top: 32px;
-            border-top: 1px solid var(--border);
-        }
-
-        .citation h2 {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        /* References Section */
-        .references {
-            margin-top: 48px;
-        }
-
-        .references h2 {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .references ol {
-            padding-left: 1.5em;
-            color: var(--text-secondary);
-        }
-
-        .references li {
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            margin-top: 40px;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-
-        /* Back to Blog Link */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 24px;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: var(--accent);
-        }
-
-        .back-link svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            article {
-                padding: 100px 16px 60px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .content h2 {
-                font-size: 1.5rem;
-            }
-
-            .math {
-                padding: 12px;
-            }
-
-            .proof {
-                padding: 16px;
-            }
-        }
-
-        /* MathJax styling */
-        mjx-container {
-            font-size: 1em !important;
-            overflow-x: auto;
-        }
-
-        mjx-container[jax="SVG"] {
-            direction: ltr;
-        }
-
-        /* Animation */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .article-header {
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .content {
-            animation: fadeUp 0.6s ease forwards;
-            animation-delay: 0.15s;
-            opacity: 0;
-        }
-    </style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"
+        integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script src="../../assets/js/site.js"></script>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-inner">
-            <a href="../../index.html" class="nav-logo">Sharan Sahu</a>
-            <ul class="nav-links">
-                <li><a href="../../index.html#research">Research</a></li>
-                <li><a href="../../index.html#talks">Talks</a></li>
-                <li><a href="../../personal.html">Personal</a></li>
-                <li><a href="../../blog.html" class="active">Blog</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Article -->
-    <article>
-        <a href="../../blog.html" class="back-link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            Back to Blog
-        </a>
-
-        <header class="article-header">
-            <h1>High-Dimensional Statistics: Concentration Inequalities</h1>
-            <div class="article-meta">April 13th, 2025</div>
-            <div class="tags">
-                <span class="tag">high-dimensional-statistics</span>
-                <span class="tag">concentration-inequalities</span>
-                <span class="tag">empirical-process-theory</span>
-                <span class="tag">statistical-learning-theory</span>
-                <span class="tag">lasso</span>
+    <header>
+        <nav id="navbar" class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="../../index.html"><span class="first-name">Sharan</span> Sahu</a>
+                <button class="navbar-toggler collapsed" type="button" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+                <div class="navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../../index.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../talks.html">Talks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../personal.html">Personal</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="../../blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../data/Sharan_PhD_CV.pdf">CV</a></li>
+                        <li class="toggle-container">
+                            <button id="light-toggle" type="button" title="Change theme" aria-label="Change theme">
+                                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+    </header>
+
+    <div class="container post">
+        <header class="post-header">
+            <h1 class="post-title">High-Dimensional Statistics: Concentration Inequalities</h1>
+            <p class="post-meta">April 13, 2025</p>
+            <p class="post-tags">
+                <i class="fas fa-calendar fa-sm"></i> 2025 &nbsp; &middot; &nbsp;
+                <i class="fas fa-hashtag fa-sm"></i> high-dimensional-statistics &nbsp;
+                <i class="fas fa-hashtag fa-sm"></i> concentration-inequalities &nbsp;
+                <i class="fas fa-hashtag fa-sm"></i> empirical-process-theory &nbsp;
+                <i class="fas fa-hashtag fa-sm"></i> statistical-learning-theory &nbsp;
+                <i class="fas fa-hashtag fa-sm"></i> lasso
+            </p>
         </header>
 
-        <div class="content">
+        <article class="post-content">
             <h2>Introduction</h2>
             <p>In a variety of settings, one often would like to establish statistical guarantees for the performance of
                 machine learning algorithms. These guarantees help us understand how fast an algorithm converges in
@@ -1180,12 +779,14 @@
                         Data Mining, Inference and Prediction. Springer, 2009. Second edition.</li>
                 </ol>
             </div>
-        </div>
-    </article>
+        </article>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>Template inspired by <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a></p>
+    <footer class="fixed-bottom">
+        <div class="container">© Copyright 2026 Sharan Sahu. Design based on the <a
+                href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a>
+            theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub
+                Pages</a>.</div>
     </footer>
 
     <!-- MathJax -->

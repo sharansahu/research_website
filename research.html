@@ -37,476 +37,376 @@
       }
     }
     </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --bg: #fdfcfa;
-            --bg-alt: #f7f5f2;
-            --text: #2d2a26;
-            --text-secondary: #5c5650;
-            --text-muted: #8a837a;
-            --accent: #b45309;
-            --accent-light: #d97706;
-            --border: #e8e4de;
-            --card-bg: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            font-size: 15px;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(253, 252, 250, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-            padding: 0 24px;
-        }
-
-        .nav-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .nav-logo {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        /* Page header */
-        .page-header {
-            padding: 100px 24px 56px;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .page-header h1 {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: clamp(2.4rem, 5vw, 3.2rem);
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        .page-header p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 600px;
-            line-height: 1.75;
-        }
-
-        /* Main content */
-        .research-page {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 64px 24px 100px;
-        }
-
-        /* Year group */
-        .year-group {
-            display: grid;
-            grid-template-columns: 64px 1fr;
-            gap: 0 40px;
-            margin-bottom: 56px;
-        }
-
-        .year-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .year-label {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: var(--accent);
-            padding-top: 2px;
-            position: sticky;
-            top: 80px;
-            align-self: start;
-        }
-
-        .papers-list {
-            display: flex;
-            flex-direction: column;
-            border-top: 1px solid var(--border);
-        }
-
-        .paper-entry {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .paper-title {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            line-height: 1.4;
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        a.paper-title:hover {
-            color: var(--accent);
-        }
-
-        .paper-authors {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Highlight own name */
-        .paper-authors .self {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .paper-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 2px;
-        }
-
-        .paper-venue {
-            font-size: 0.82rem;
-            font-style: italic;
-            color: var(--text-muted);
-        }
-
-        .paper-badge {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .paper-badge.spotlight {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .paper-badge.revision {
-            background: var(--bg-alt);
-            color: var(--text-muted);
-        }
-
-        .paper-links {
-            display: flex;
-            gap: 14px;
-            margin-top: 4px;
-        }
-
-        .paper-link {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: gap 0.15s;
-        }
-
-        .paper-link:hover {
-            gap: 7px;
-        }
-
-        .paper-link svg {
-            width: 11px;
-            height: 11px;
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            margin-top: 0;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--accent);
-        }
-
-        @media (max-width: 700px) {
-            .year-group {
-                grid-template-columns: 1fr;
-                gap: 12px 0;
-            }
-
-            .year-label {
-                position: static;
-                font-size: 1.3rem;
-                padding-bottom: 4px;
-            }
-
-            .nav-links {
-                gap: 18px;
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .page-header {
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .research-page {
-            animation: fadeUp 0.6s 0.1s ease both;
-        }
-    </style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"
+        integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/site.js"></script>
 </head>
 
 <body>
 
-    <nav>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">Sharan Sahu</a>
-            <ul class="nav-links">
-                <li><a href="research.html" class="active">Research</a></li>
-                <li><a href="index.html#talks">Talks</a></li>
-                <li><a href="personal.html">Personal</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav id="navbar" class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><span class="first-name">Sharan</span> Sahu</a>
+                <button class="navbar-toggler collapsed" type="button" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+                <div class="navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="research.html" aria-current="page">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="talks.html">Talks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="personal.html">Personal</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="data/Sharan_PhD_CV.pdf">CV</a></li>
+                        <li class="toggle-container">
+                            <button id="light-toggle" type="button" title="Change theme" aria-label="Change theme">
+                                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <div class="page-header">
-        <h1>Research</h1>
-        <p>Theory and methods in high-dimensional statistics, stochastic and robust optimization, reinforcement learning, sequential decision-making under distribution shift, and language and diffusion models.</p>
+    <div class="container post">
+        <header class="post-header">
+            <h1 class="post-title">Research</h1>
+            <p class="post-description">Theory and methods in high-dimensional statistics, stochastic and robust
+                optimization, reinforcement learning, sequential decision-making under distribution shift, and language
+                and diffusion models.</p>
+        </header>
+
+        <article>
+            <div class="publications">
+                <h2 class="bibliography">2026</h2>
+                <ol class="bibliography">
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://neurips.cc/Conferences/2026"
+                                        target="_blank" rel="noopener noreferrer">NeurIPS</a></abbr></div>
+                            <div id="sahu2026provably" class="col-sm-8">
+                                <div class="title">Provably Reliable Classifier Guidance through Cross-entropy Error
+                                    Control</div>
+                                <div class="author"><em>Sharan Sahu</em>, Arisina Banerjee, and Yuchen Wu</div>
+                                <div class="periodical"><em>In The 40th Annual Conference on Neural Information
+                                        Processing Systems (NeurIPS)</em> 2026</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2601.21200" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2601.21200" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>Classifier-guided diffusion models generate conditional samples by augmenting the
+                                        reverse-time score with the gradient of the log-probability predicted by a
+                                        probabilistic classifier. In practice, this classifier is usually obtained by
+                                        minimizing an empirical loss function. While existing statistical theory
+                                        guarantees good generalization performance when the sample size is sufficiently
+                                        large, it remains unclear whether such training yields an effective guidance
+                                        mechanism. We study this question in the context of cross-entropy loss, which is
+                                        widely used for classifier training. Under mild smoothness assumptions on the
+                                        classifier, we show that controlling the cross-entropy at each diffusion model
+                                        step is sufficient to control the corresponding guidance error. In particular,
+                                        probabilistic classifiers achieving conditional KL divergence
+                                        $\varepsilon^2$ induce guidance vectors with mean squared error
+                                        $\widetilde O(d \varepsilon)$, up to constant and logarithmic factors. Our
+                                        result yields an upper bound on the sampling error of classifier-guided
+                                        diffusion models and bears resemblance to a reverse log-Sobolev–type
+                                        inequality. To the best of our knowledge, this is the first result that
+                                        quantitatively links classifier training to guidance alignment in diffusion
+                                        models, providing both a theoretical explanation for the empirical success of
+                                        classifier guidance, and principled guidelines for selecting classifiers that
+                                        induce effective guidance.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@inproceedings{sahu2026provably,
+  title     = {Provably Reliable Classifier Guidance through Cross-entropy Error Control},
+  author    = {Sahu, Sharan and Banerjee, Arisina and Wu, Yuchen},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://icml.cc/Conferences/2026"
+                                        target="_blank" rel="noopener noreferrer">ICML</a></abbr></div>
+                            <div id="sahu2026provable" class="col-sm-8">
+                                <div class="title">On the Provable Suboptimality of Momentum SGD in Nonstationary
+                                    Stochastic Optimization</div>
+                                <div class="author"><em>Sharan Sahu</em>, Cameron J. Hogan, and Martin T. Wells</div>
+                                <div class="periodical"><em>In Proceedings of the 43rd International Conference on
+                                        Machine Learning (ICML)</em> 2026</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2601.12238" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2601.12238" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                    <a href="https://icml.cc/virtual/2026/poster/63752" class="btn" target="_blank"
+                                        rel="noopener noreferrer">Poster</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>In this paper, we provide a comprehensive theoretical analysis of Stochastic
+                                        Gradient Descent (SGD) and its momentum variants (Polyak Heavy-Ball and
+                                        Nesterov) for tracking time-varying optima under strong convexity and
+                                        smoothness. Our finite-time bounds reveal a sharp decomposition of tracking
+                                        error into transient, noise-induced, and drift-induced components. This
+                                        decomposition exposes a fundamental trade-off: while momentum is often used as a
+                                        gradient-smoothing heuristic, under distribution shift it incurs an explicit
+                                        drift-amplification penalty that diverges as the momentum parameter $\beta$
+                                        approaches 1, yielding systematic tracking lag. We complement these upper bounds
+                                        with minimax lower bounds under gradient-variation constraints, proving this
+                                        momentum-induced tracking penalty is not an analytical artifact but an
+                                        information-theoretic barrier: in drift-dominated regimes, momentum is
+                                        unavoidably worse because stale-gradient averaging forces systematic lag. Our
+                                        results provide theoretical grounding for the empirical instability of momentum
+                                        in dynamic settings and precisely delineate regime boundaries where vanilla SGD
+                                        provably outperforms its accelerated counterparts.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@inproceedings{sahu2026provable,
+  title     = {On the Provable Suboptimality of Momentum {SGD} in Nonstationary Stochastic Optimization},
+  author    = {Sahu, Sharan and Hogan, Cameron J. and Wells, Martin T.},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  year      = {2026}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://arxiv.org/abs/2605.04269"
+                                        target="_blank" rel="noopener noreferrer">arXiv</a></abbr></div>
+                            <div id="sahu2026adapt" class="col-sm-8">
+                                <div class="title">Adapt or Forget: Provable Tradeoffs Between Adam and SGD in
+                                    Nonstationary Optimization</div>
+                                <div class="author"><em>Sharan Sahu</em>, Abir Sarkar, Cameron J. Hogan, and Martin T.
+                                    Wells</div>
+                                <div class="periodical"><em>arXiv preprint arXiv:2605.04269</em> 2026</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2605.04269" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2605.04269" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>We provide a theoretical analysis of Adam under non-stationary stochastic
+                                        objectives, separating two regimes: Euclidean tracking under adaptive strong
+                                        monotonicity of the Adam-preconditioned mean-gradient operator, and
+                                        high-probability projected stationarity guarantees under general $L$-smooth
+                                        objectives. In the tracking regime, we derive finite-time expected and
+                                        high-probability bounds that decompose sharply into four components:
+                                        initialization, objective drift, a first-moment tracking error governed by
+                                        $\beta_1$, and a preconditioner perturbation governed by $\beta_2$. We
+                                        characterize the burn-in time required for the transient terms to decay to the
+                                        asymptotic tracking bound under constant and step-decay schedules. We also prove
+                                        a high-probability bound on the average projected stationarity gap for Adam
+                                        under distribution shift. Across both analyses, our bounds reveal a noise–drift
+                                        tradeoff: in noise-dominated regimes, first-moment averaging and adaptive
+                                        preconditioning can yield favorable upper guarantees, whereas in drift-dominated
+                                        regimes, stale first-moment information and preconditioner perturbations can
+                                        enlarge Adam's tracking guarantee, potentially allowing vanilla SGD to attain a
+                                        smaller tracking error. Our explicit $(\beta_1,\beta_2,\epsilon)$-dependent
+                                        bounds identify mechanisms through which adaptive step-sizing can help or hurt
+                                        under nonstationarity and provide theoretical explanations consistent with
+                                        Adam's empirical instability and stabilization under distribution shift.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@article{sahu2026adapt,
+  title   = {Adapt or Forget: Provable Tradeoffs Between {Adam} and {SGD} in Nonstationary Optimization},
+  author  = {Sahu, Sharan and Sarkar, Abir and Hogan, Cameron J. and Wells, Martin T.},
+  journal = {arXiv preprint arXiv:2605.04269},
+  year    = {2026}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://arxiv.org/abs/2608.09031"
+                                        target="_blank" rel="noopener noreferrer">arXiv</a></abbr></div>
+                            <div id="herath2026hopper" class="col-sm-8">
+                                <div class="title">HOPPER: Learnable Hop Extraction for Linearized Graph Sequence Models
+                                </div>
+                                <div class="author">Isuru Herath, Arin Gopakumar, and <em>Sharan Sahu</em></div>
+                                <div class="periodical"><em>arXiv preprint arXiv:2608.09031</em> 2026</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2608.09031" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2608.09031" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>Graph neural networks typically propagate information through repeated
+                                        message-passing layers, coupling propagation distance with the number of
+                                        nonlinear transformations applied. This coupling can make deep architectures
+                                        difficult to optimize and lead to over-smoothing, over-squashing, and loss of
+                                        long-range information. Linearized Graph Sequence Models (LGSMs) address this
+                                        issue by separating propagation depth from processing depth and representing
+                                        successive propagation states of each node as a sequence. However, existing
+                                        LGSMs construct these sequences using fixed graph operators, limiting their
+                                        ability to adapt propagation to the input graph, node features, and downstream
+                                        task. We introduce HOPPER, an end-to-end learnable extension of LGSM that learns
+                                        how hop sequences should be extracted before processing by a modern state-space
+                                        model. HOPPER supports feature-conditioned, structure-aware, graph and
+                                        hop-adaptive propagation while preserving permutation equivariance, with
+                                        standard adjacency-based and non-backtracking LGSM sequences arising as special
+                                        cases of the extractor family. HOPPER is state-of-the-art or competitive across
+                                        ECHO-Synth and performs strongly on City-Networks. On the LRIM physics-based
+                                        long-range dependency benchmark, varying the maximum neighborhood size used for
+                                        message-backtracking cancellation, corresponding to the structural memory
+                                        window, substantially affects performance. Ablations further isolate the
+                                        contributions of the learnable extraction mechanism and its structural and
+                                        feature-adaptive components, showing that adaptive hop-sequence construction
+                                        provides gains beyond the downstream sequence model alone. Together, these
+                                        results demonstrate that learnable sequence extraction is a flexible and
+                                        effective framework for long-range graph representation learning across
+                                        synthetic, physics-based and real-world graph benchmarks.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@article{herath2026hopper,
+  title   = {{HOPPER}: Learnable Hop Extraction for Linearized Graph Sequence Models},
+  author  = {Herath, Isuru and Gopakumar, Arin and Sahu, Sharan},
+  journal = {arXiv preprint arXiv:2608.09031},
+  year    = {2026}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+
+                <h2 class="bibliography">2025</h2>
+                <ol class="bibliography">
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://arxiv.org/abs/2509.19104"
+                                        target="_blank" rel="noopener noreferrer">arXiv</a></abbr></div>
+                            <div id="sahu2025online" class="col-sm-8">
+                                <div class="title">Online Distributionally Robust LLM Alignment via Regression to
+                                    Relative Reward</div>
+                                <div class="author"><em>Sharan Sahu</em> and Martin T. Wells</div>
+                                <div class="periodical"><em>arXiv preprint arXiv:2509.19104</em> 2025</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2509.19104" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2509.19104" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>Reinforcement Learning with Human Feedback (RLHF) has become crucial for aligning
+                                        Large Language Models (LLMs) with human intent. However, existing offline RLHF
+                                        approaches suffer from overoptimization, where language models degrade by
+                                        overfitting inaccuracies and drifting from preferred behaviors observed during
+                                        training. Distributionally robust optimization (DRO) is a natural solution, but
+                                        existing DRO-DPO methods are sample-inefficient, ignore heterogeneous
+                                        preferences, and lean on brittle heuristics. We introduce <em>DRO-REBEL</em>, a
+                                        family of robust online REBEL updates built on type-$p$ Wasserstein,
+                                        Kullback-Leibler (KL), and $\chi^2$ ambiguity sets. Strong duality reduces each
+                                        update to a relative-reward regression, retaining REBEL's scalability without
+                                        PPO-style clipping or value networks. Under linear rewards, log-linear policies,
+                                        and a standard coverage condition, we prove $\widetilde{O}(\sqrt{d/n})$ bounds
+                                        on squared parameter error, with sharper constants than prior DRO-DPO analyses,
+                                        and give the first parametric $\widetilde{O}(d/n)$ rate for DRO-based alignment
+                                        under preference shift, matching non-robust RLHF in benign regimes. Each
+                                        divergence yields a tractable SGD-based algorithm: gradient regularization for
+                                        Wasserstein, importance weighting for KL, and a 1-D dual solve for $\chi^2$. On
+                                        Emotion Alignment, the ArmoRM multi-objective benchmark, and HH-Alignment,
+                                        DRO-REBEL outperforms prior robust and non-robust baselines across unseen
+                                        preference mixtures, model sizes, and dataset scales.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@article{sahu2025online,
+  title   = {Online Distributionally Robust {LLM} Alignment via Regression to Relative Reward},
+  author  = {Sahu, Sharan and Wells, Martin T.},
+  journal = {arXiv preprint arXiv:2509.19104},
+  year    = {2025}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://arxiv.org/abs/2504.09339"
+                                        target="_blank" rel="noopener noreferrer">arXiv</a></abbr></div>
+                            <div id="sahu2025towards" class="col-sm-8">
+                                <div class="title">Towards Optimal Differentially Private Regret Bounds in Linear Markov
+                                    Decision Processes</div>
+                                <div class="author"><em>Sharan Sahu</em></div>
+                                <div class="periodical"><em>arXiv preprint arXiv:2504.09339</em> 2025</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2504.09339" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2504.09339" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                    <a href="data/Towards_Opt_Diff_Private_MDP.pdf" class="btn">Slides</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>We study regret minimization under privacy constraints in episodic inhomogeneous
+                                        linear Markov Decision Processes (MDPs), motivated by the growing use of
+                                        reinforcement learning (RL) in personalized decision-making systems that rely on
+                                        sensitive user data. In this setting, both transition probabilities and reward
+                                        functions are assumed to be linear in a feature mapping $\phi(s, a)$, and we aim
+                                        to ensure privacy through joint differential privacy (JDP), a relaxation of
+                                        differential privacy suited to online learning. Prior work has established
+                                        suboptimal regret bounds by privatizing the LSVI-UCB algorithm, which achieves
+                                        $\widetilde{O}(\sqrt{d^3 H^4 K})$ regret in the non-private setting. Building on
+                                        recent advances that improve this to near minimax optimal regret
+                                        $\widetilde{O}(d\sqrt{H^{3}K})$ via LSVI-UCB++ with Bernstein-style bonuses, we
+                                        design a new differentially private algorithm by privatizing LSVI-UCB++ and
+                                        adapting techniques for variance-aware analysis from offline RL. Our algorithm
+                                        achieves a regret bound of $\widetilde{O}(d \sqrt{H^3 K} + H^{15/4} d^{7/6}
+                                        K^{1/2} / \varepsilon)$, improving over previous private methods. Empirical
+                                        results show that our algorithm retains near-optimal utility compared to
+                                        non-private baselines, indicating that privacy can be achieved with minimal
+                                        performance degradation in this setting.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@article{sahu2025towards,
+  title   = {Towards Optimal Differentially Private Regret Bounds in Linear {Markov} Decision Processes},
+  author  = {Sahu, Sharan},
+  journal = {arXiv preprint arXiv:2504.09339},
+  year    = {2025}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </article>
     </div>
 
-    <div class="research-page">
-
-        <!-- 2025 -->
-        <div class="year-group">
-            <div class="year-label">2026</div>
-            <div class="papers-list">
-
-                <div class="paper-entry">
-                    <a href="https://arxiv.org/abs/2601.21200" target="_blank" class="paper-title">
-                        Provably Reliable Classifier Guidance through Cross-entropy Error Control
-                    </a>
-                    <div class="paper-authors">
-                        <span class="self">Sharan Sahu</span>, Arisina Banerjee, and Yuchen Wu
-                    </div>
-                    <div class="paper-meta">
-                        <span class="paper-venue">The 40th Annual Conference on Neural Information Processing Systems
-                            (NeurIPS 2026)</span>
-                    </div>
-                    <div class="paper-links">
-                        <a href="https://arxiv.org/abs/2601.21200" target="_blank" class="paper-link">
-                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="paper-entry">
-                    <a href="https://arxiv.org/abs/2601.12238" target="_blank" class="paper-title">
-                        On the Provable Suboptimality of Momentum SGD in Nonstationary Stochastic Optimization
-                    </a>
-                    <div class="paper-authors">
-                        <span class="self">Sharan Sahu</span>, Cameron J. Hogan, and Martin T. Wells
-                    </div>
-                    <div class="paper-meta">
-                        <span class="paper-venue">The 43rd International Conference on Machine Learning (ICML
-                            2026)</span>
-                    </div>
-                    <div class="paper-links">
-                        <a href="https://arxiv.org/abs/2601.12238" target="_blank" class="paper-link">
-                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" />
-                            </svg>
-                        </a>
-                        |
-                        <a href="https://icml.cc/virtual/2026/poster/63752" target="_blank" class="paper-link">
-                            ICML Poster <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="paper-entry">
-                    <a href="https://arxiv.org/abs/2605.04269" target="_blank" class="paper-title">
-                        Adapt or Forget: Provable Tradeoffs Between Adam and SGD in Nonstationary Optimization
-                    </a>
-                    <div class="paper-authors">
-                        <span class="self">Sharan Sahu</span>, Abir Sarkar, Cameron J. Hogan, and Martin T. Wells
-                    </div>
-                    <div class="paper-meta">
-                        <span class="paper-venue">Preprint, 2026</span>
-                    </div>
-                    <div class="paper-links">
-                        <a href="https://arxiv.org/abs/2605.04269" target="_blank" class="paper-link">
-                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="paper-entry">
-                    <a href="https://arxiv.org/abs/2608.09031" target="_blank" class="paper-title">
-                        HOPPER: Learnable Hop Extraction for Linearized Graph Sequence Models
-                    </a>
-                    <div class="paper-authors">
-                        Isuru Herath, Arin Gopakumar, and <span class="self">Sharan Sahu</span>
-                    </div>
-                    <div class="paper-meta">
-                        <span class="paper-venue">Preprint, 2026</span>
-                    </div>
-                    <div class="paper-links">
-                        <a href="https://arxiv.org/abs/2608.09031" target="_blank" class="paper-link">
-                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2024 -->
-        <div class="year-group">
-            <div class="year-label">2025</div>
-            <div class="papers-list">
-
-                <div class="paper-entry">
-                    <a href="https://arxiv.org/abs/2509.19104" target="_blank" class="paper-title">
-                        Online Distributionally Robust LLM Alignment via Regression to Relative Reward
-                    </a>
-                    <div class="paper-authors">
-                        <span class="self">Sharan Sahu</span> and Martin T. Wells
-                    </div>
-                    <div class="paper-meta">
-                        <span class="paper-venue">Preprint, 2025</span>
-                    </div>
-                    <div class="paper-links">
-                        <a href="https://arxiv.org/abs/2509.19104" target="_blank" class="paper-link">
-                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="paper-entry">
-                    <a href="https://arxiv.org/abs/2504.09339" target="_blank" class="paper-title">
-                        Towards Optimal Differentially Private Regret Bounds in Linear Markov Decision Processes
-                    </a>
-                    <div class="paper-authors">
-                        <span class="self">Sharan Sahu</span>
-                    </div>
-                    <div class="paper-meta">
-                        <span class="paper-venue">Preprint, 2025</span>
-                    </div>
-                    <div class="paper-links">
-                        <a href="https://arxiv.org/abs/2504.09339" target="_blank" class="paper-link">
-                            arXiv <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div><!-- /research-page -->
-
-    <footer>
-        <p>Template inspired by <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a></p>
+    <footer class="fixed-bottom">
+        <div class="container">© Copyright 2026 Sharan Sahu. Design based on the <a
+                href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a>
+            theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub
+                Pages</a>.</div>
     </footer>
 
     <script>
