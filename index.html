@@ -140,6 +140,15 @@
                 <div class="table-responsive">
                     <table>
                         <tr>
+                            <th scope="row">Oct, 2026</th>
+                            <td>New preprint online: We characterize the tradeoff between reward maximization and
+                                reliable inference on current treatment effects in nonstationary multi-armed bandits,
+                                establishing matching minimax bounds on dynamic regret. <a
+                                    href="https://arxiv.org/abs/2610.29982" target="_blank"
+                                    rel="noopener noreferrer">The Price of Current-Effect Inference in Nonstationary
+                                    Multi-Armed Bandits</a>.</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Sep, 2026</th>
                             <td>Our paper <a href="https://arxiv.org/abs/2601.21200" target="_blank"
                                     rel="noopener noreferrer">Provably Reliable Classifier Guidance through
@@ -239,55 +248,6 @@
                 <ol class="bibliography">
                     <li>
                         <div class="row">
-                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://icml.cc/Conferences/2026"
-                                        target="_blank" rel="noopener noreferrer">ICML</a></abbr></div>
-                            <div id="sahu2026provable" class="col-sm-8">
-                                <div class="title">On the Provable Suboptimality of Momentum SGD in Nonstationary
-                                    Stochastic Optimization</div>
-                                <div class="author"><em>Sharan Sahu</em>, Cameron J. Hogan, and Martin T. Wells</div>
-                                <div class="periodical"><em>In Proceedings of the 43rd International Conference on
-                                        Machine Learning (ICML)</em> 2026</div>
-                                <div class="links">
-                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
-                                    <a href="https://arxiv.org/abs/2601.12238" class="btn" target="_blank"
-                                        rel="noopener noreferrer">arXiv</a>
-                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
-                                    <a href="https://arxiv.org/pdf/2601.12238" class="btn" target="_blank"
-                                        rel="noopener noreferrer">PDF</a>
-                                    <a href="https://icml.cc/virtual/2026/poster/63752" class="btn" target="_blank"
-                                        rel="noopener noreferrer">Poster</a>
-                                </div>
-                                <div class="abstract hidden">
-                                    <p>In this paper, we provide a comprehensive theoretical analysis of Stochastic
-                                        Gradient Descent (SGD) and its momentum variants (Polyak Heavy-Ball and
-                                        Nesterov) for tracking time-varying optima under strong convexity and
-                                        smoothness. Our finite-time bounds reveal a sharp decomposition of tracking
-                                        error into transient, noise-induced, and drift-induced components. This
-                                        decomposition exposes a fundamental trade-off: while momentum is often used as a
-                                        gradient-smoothing heuristic, under distribution shift it incurs an explicit
-                                        drift-amplification penalty that diverges as the momentum parameter $\beta$
-                                        approaches 1, yielding systematic tracking lag. We complement these upper bounds
-                                        with minimax lower bounds under gradient-variation constraints, proving this
-                                        momentum-induced tracking penalty is not an analytical artifact but an
-                                        information-theoretic barrier: in drift-dominated regimes, momentum is
-                                        unavoidably worse because stale-gradient averaging forces systematic lag. Our
-                                        results provide theoretical grounding for the empirical instability of momentum
-                                        in dynamic settings and precisely delineate regime boundaries where vanilla SGD
-                                        provably outperforms its accelerated counterparts.</p>
-                                </div>
-                                <div class="bibtex hidden">
-<pre><code>@inproceedings{sahu2026provable,
-  title     = {On the Provable Suboptimality of Momentum {SGD} in Nonstationary Stochastic Optimization},
-  author    = {Sahu, Sharan and Hogan, Cameron J. and Wells, Martin T.},
-  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
-  year      = {2026}
-}</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="row">
                             <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://neurips.cc/Conferences/2026"
                                         target="_blank" rel="noopener noreferrer">NeurIPS</a></abbr></div>
                             <div id="sahu2026provably" class="col-sm-8">
@@ -339,6 +299,110 @@
                     </li>
                     <li>
                         <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://icml.cc/Conferences/2026"
+                                        target="_blank" rel="noopener noreferrer">ICML</a></abbr></div>
+                            <div id="sahu2026provable" class="col-sm-8">
+                                <div class="title">On the Provable Suboptimality of Momentum SGD in Nonstationary
+                                    Stochastic Optimization</div>
+                                <div class="author"><em>Sharan Sahu</em>, Cameron J. Hogan, and Martin T. Wells</div>
+                                <div class="periodical"><em>In Proceedings of the 43rd International Conference on
+                                        Machine Learning (ICML)</em> 2026</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2601.12238" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2601.12238" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                    <a href="https://icml.cc/virtual/2026/poster/63752" class="btn" target="_blank"
+                                        rel="noopener noreferrer">Poster</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>In this paper, we provide a comprehensive theoretical analysis of Stochastic
+                                        Gradient Descent (SGD) and its momentum variants (Polyak Heavy-Ball and
+                                        Nesterov) for tracking time-varying optima under strong convexity and
+                                        smoothness. Our finite-time bounds reveal a sharp decomposition of tracking
+                                        error into transient, noise-induced, and drift-induced components. This
+                                        decomposition exposes a fundamental trade-off: while momentum is often used as a
+                                        gradient-smoothing heuristic, under distribution shift it incurs an explicit
+                                        drift-amplification penalty that diverges as the momentum parameter $\beta$
+                                        approaches 1, yielding systematic tracking lag. We complement these upper bounds
+                                        with minimax lower bounds under gradient-variation constraints, proving this
+                                        momentum-induced tracking penalty is not an analytical artifact but an
+                                        information-theoretic barrier: in drift-dominated regimes, momentum is
+                                        unavoidably worse because stale-gradient averaging forces systematic lag. Our
+                                        results provide theoretical grounding for the empirical instability of momentum
+                                        in dynamic settings and precisely delineate regime boundaries where vanilla SGD
+                                        provably outperforms its accelerated counterparts.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@inproceedings{sahu2026provable,
+  title     = {On the Provable Suboptimality of Momentum {SGD} in Nonstationary Stochastic Optimization},
+  author    = {Sahu, Sharan and Hogan, Cameron J. and Wells, Martin T.},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  year      = {2026}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://arxiv.org/abs/2610.29982"
+                                        target="_blank" rel="noopener noreferrer">arXiv</a></abbr></div>
+                            <div id="sahu2026price" class="col-sm-8">
+                                <div class="title">The Price of Current-Effect Inference in Nonstationary Multi-Armed
+                                    Bandits</div>
+                                <div class="author"><em>Sharan Sahu</em> and Martin T. Wells</div>
+                                <div class="periodical"><em>arXiv preprint arXiv:2610.29982</em> 2026</div>
+                                <div class="links">
+                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
+                                    <a href="https://arxiv.org/abs/2610.29982" class="btn" target="_blank"
+                                        rel="noopener noreferrer">arXiv</a>
+                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
+                                    <a href="https://arxiv.org/pdf/2610.29982" class="btn" target="_blank"
+                                        rel="noopener noreferrer">PDF</a>
+                                </div>
+                                <div class="abstract hidden">
+                                    <p>Adaptive experiments use bandit algorithms to favor interventions with higher
+                                        expected rewards. However, decision-makers also require reliable inference on
+                                        current treatment effects: differences between intervention and reference-arm
+                                        mean rewards at the present time, rather than historical averages. These
+                                        objectives conflict: reward maximization favors better interventions, whereas
+                                        current-effect inference requires continued exploration of potentially
+                                        suboptimal interventions as outcomes change over time. We characterize this
+                                        tradeoff for $K$-arm bandits with Hölder-smooth mean rewards of exponent
+                                        $\beta\in(0,1]$ and constant $L$. Requiring high-probability simultaneous
+                                        coverage of all current effects by confidence intervals of width at most $w$, we
+                                        establish matching minimax bounds, up to logarithmic factors, on expected
+                                        dynamic regret. Over horizon $T$, our algorithm TRACE (Tracking Rewards and
+                                        Current Effects) achieves regret of order
+                                        $\widetilde{O}_\beta\left(\sqrt{KT}+K^{\beta/(2\beta+1)}L^{1/(2\beta+1)}T^{(\beta+1)/(2\beta+1)}+Kw^{-2}(1+L^{1/\beta}w^{-1/\beta})\right)$,
+                                        where the notation hides logarithms and constants depending only on $\beta$.
+                                        This regret–precision tradeoff separates reward-learning regret from the cost
+                                        of refreshing current-effect estimates, which remains unavoidable even when one
+                                        arm is uniformly optimal. An empirical-Bernstein e-process extension adapts
+                                        exploration to realized prediction errors while preserving worst-case
+                                        guarantees. When within-block drift is negligible relative to sampling error,
+                                        all observations, including reward-learning observations, can be reused for
+                                        asymptotically normal pointwise inference and stronger local stationarity
+                                        yields local asymptotic efficiency. Finally, we show that regret constraints can
+                                        prevent honest adaptation to unknown smoothness and support our theory with
+                                        extensive numerical experiments.</p>
+                                </div>
+                                <div class="bibtex hidden">
+<pre><code>@article{sahu2026price,
+  title   = {The Price of Current-Effect Inference in Nonstationary Multi-Armed Bandits},
+  author  = {Sahu, Sharan and Wells, Martin T.},
+  journal = {arXiv preprint arXiv:2610.29982},
+  year    = {2026}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
                             <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://arxiv.org/abs/2605.04269"
                                         target="_blank" rel="noopener noreferrer">arXiv</a></abbr></div>
                             <div id="sahu2026adapt" class="col-sm-8">
@@ -382,61 +446,6 @@
   title   = {Adapt or Forget: Provable Tradeoffs Between {Adam} and {SGD} in Nonstationary Optimization},
   author  = {Sahu, Sharan and Sarkar, Abir and Hogan, Cameron J. and Wells, Martin T.},
   journal = {arXiv preprint arXiv:2605.04269},
-  year    = {2026}
-}</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="row">
-                            <div class="col-sm-2 abbr"><abbr class="badge"><a href="https://arxiv.org/abs/2608.09031"
-                                        target="_blank" rel="noopener noreferrer">arXiv</a></abbr></div>
-                            <div id="herath2026hopper" class="col-sm-8">
-                                <div class="title">HOPPER: Learnable Hop Extraction for Linearized Graph Sequence Models
-                                </div>
-                                <div class="author">Isuru Herath, Arin Gopakumar, and <em>Sharan Sahu</em></div>
-                                <div class="periodical"><em>arXiv preprint arXiv:2608.09031</em> 2026</div>
-                                <div class="links">
-                                    <button type="button" class="btn abstract" aria-expanded="false">Abs</button>
-                                    <a href="https://arxiv.org/abs/2608.09031" class="btn" target="_blank"
-                                        rel="noopener noreferrer">arXiv</a>
-                                    <button type="button" class="btn bibtex" aria-expanded="false">Bib</button>
-                                    <a href="https://arxiv.org/pdf/2608.09031" class="btn" target="_blank"
-                                        rel="noopener noreferrer">PDF</a>
-                                </div>
-                                <div class="abstract hidden">
-                                    <p>Graph neural networks typically propagate information through repeated
-                                        message-passing layers, coupling propagation distance with the number of
-                                        nonlinear transformations applied. This coupling can make deep architectures
-                                        difficult to optimize and lead to over-smoothing, over-squashing, and loss of
-                                        long-range information. Linearized Graph Sequence Models (LGSMs) address this
-                                        issue by separating propagation depth from processing depth and representing
-                                        successive propagation states of each node as a sequence. However, existing
-                                        LGSMs construct these sequences using fixed graph operators, limiting their
-                                        ability to adapt propagation to the input graph, node features, and downstream
-                                        task. We introduce HOPPER, an end-to-end learnable extension of LGSM that learns
-                                        how hop sequences should be extracted before processing by a modern state-space
-                                        model. HOPPER supports feature-conditioned, structure-aware, graph and
-                                        hop-adaptive propagation while preserving permutation equivariance, with
-                                        standard adjacency-based and non-backtracking LGSM sequences arising as special
-                                        cases of the extractor family. HOPPER is state-of-the-art or competitive across
-                                        ECHO-Synth and performs strongly on City-Networks. On the LRIM physics-based
-                                        long-range dependency benchmark, varying the maximum neighborhood size used for
-                                        message-backtracking cancellation, corresponding to the structural memory
-                                        window, substantially affects performance. Ablations further isolate the
-                                        contributions of the learnable extraction mechanism and its structural and
-                                        feature-adaptive components, showing that adaptive hop-sequence construction
-                                        provides gains beyond the downstream sequence model alone. Together, these
-                                        results demonstrate that learnable sequence extraction is a flexible and
-                                        effective framework for long-range graph representation learning across
-                                        synthetic, physics-based and real-world graph benchmarks.</p>
-                                </div>
-                                <div class="bibtex hidden">
-<pre><code>@article{herath2026hopper,
-  title   = {{HOPPER}: Learnable Hop Extraction for Linearized Graph Sequence Models},
-  author  = {Herath, Isuru and Gopakumar, Arin and Sahu, Sharan},
-  journal = {arXiv preprint arXiv:2608.09031},
   year    = {2026}
 }</code></pre>
                                 </div>
